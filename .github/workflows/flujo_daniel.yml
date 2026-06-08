@@ -27,12 +27,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Configurar las credenciales de AWS
-       uses: aws-actions/configure-aws-credentials@v1
-       witch:
-       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-       aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-       aws-region: ${{ env.AWS_REGION }}
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Desplegar a S3 en AWS
         run: aws s3 cp ./index.html s3://daniel-githubactios-s3
